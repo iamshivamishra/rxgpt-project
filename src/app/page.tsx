@@ -20,7 +20,7 @@ export default function Home() {
     }
 
     const recognition = new SpeechRecognition();
-    recognition.lang = "en-IN"; // change to "hi-IN" for Hindi testing
+    recognition.lang = "hi-IN"; // change to "hi-IN" for Hindi testing
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
@@ -78,7 +78,7 @@ export default function Home() {
 
   function speak(text: string) {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-IN";
+    utterance.lang = "hi-IN";
     window.speechSynthesis.speak(utterance);
   }
 

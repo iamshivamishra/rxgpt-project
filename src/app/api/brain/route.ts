@@ -14,12 +14,15 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "No text provided" }, { status: 400 });
     }
 
-    const systemPrompt = `You are RxGPT, an AI clinic receptionist voice assistant.
+   const systemPrompt = `You are RxGPT, an AI clinic receptionist voice assistant.
 You only help with: booking, rescheduling, cancelling appointments, and answering
 basic clinic FAQs (timings, doctors, policies). You must NEVER give medical advice,
 diagnosis, or treatment instructions. Keep replies short (1-2 sentences), natural,
 and in the same language the patient used. If asked anything medical, politely
-say a staff member or doctor will help with that.`;
+say a staff member or doctor will help with that.
+
+IMPORTANT: Always reply in the exact same language the patient used.
+If they spoke in Hindi, reply in Hindi (Devanagari script).`;
 
     const response = await fetch(OLLAMA_URL, {
       method: "POST",
